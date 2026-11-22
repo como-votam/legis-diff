@@ -1,0 +1,343 @@
+{
+  "$defs": {
+    "Change": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "op": {
+          "enum": [
+            "equal",
+            "insert",
+            "delete",
+            "modify",
+            "move",
+            "renumber",
+            "revoke"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "enum": [
+                "documento",
+                "epigrafe",
+                "ementa",
+                "preambulo",
+                "parte",
+                "livro",
+                "titulo",
+                "capitulo",
+                "secao",
+                "subsecao",
+                "agrupamento",
+                "artigo",
+                "caput",
+                "paragrafo",
+                "inciso",
+                "alinea",
+                "item",
+                "fechamento",
+                "anexo",
+                "texto"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Kind"
+        },
+        "old_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Old Id"
+        },
+        "new_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "New Id"
+        },
+        "old_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Old Path"
+        },
+        "new_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "New Path"
+        },
+        "old_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Old Label"
+        },
+        "new_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "New Label"
+        },
+        "old_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Old Text"
+        },
+        "new_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "New Text"
+        },
+        "similarity": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Similarity"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "text_diff": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextSpan"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "title": "Change",
+      "type": "object"
+    },
+    "DiffSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "equal": {
+          "default": 0,
+          "title": "Equal",
+          "type": "integer"
+        },
+        "insert": {
+          "default": 0,
+          "title": "Insert",
+          "type": "integer"
+        },
+        "delete": {
+          "default": 0,
+          "title": "Delete",
+          "type": "integer"
+        },
+        "modify": {
+          "default": 0,
+          "title": "Modify",
+          "type": "integer"
+        },
+        "move": {
+          "default": 0,
+          "title": "Move",
+          "type": "integer"
+        },
+        "renumber": {
+          "default": 0,
+          "title": "Renumber",
+          "type": "integer"
+        },
+        "revoke": {
+          "default": 0,
+          "title": "Revoke",
+          "type": "integer"
+        },
+        "devices_old": {
+          "default": 0,
+          "title": "Devices Old",
+          "type": "integer"
+        },
+        "devices_new": {
+          "default": 0,
+          "title": "Devices New",
+          "type": "integer"
+        }
+      },
+      "title": "DiffSummary",
+      "type": "object"
+    },
+    "TextSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "before": {
+          "title": "Before",
+          "type": "string"
+        },
+        "after": {
+          "title": "After",
+          "type": "string"
+        },
+        "similarity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Similarity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "before",
+        "after",
+        "similarity"
+      ],
+      "title": "TextSpan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "summary": {
+      "$ref": "#/$defs/DiffSummary"
+    },
+    "changes": {
+      "items": {
+        "$ref": "#/$defs/Change"
+      },
+      "title": "Changes",
+      "type": "array"
+    },
+    "old_source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Old Source"
+    },
+    "new_source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "New Source"
+    },
+    "options": {
+      "additionalProperties": true,
+      "title": "Options",
+      "type": "object"
+    }
+  },
+  "required": [
+    "summary"
+  ],
+  "title": "DiffReport",
+  "type": "object"
+}

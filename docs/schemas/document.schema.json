@@ -1,0 +1,186 @@
+{
+  "$defs": {
+    "Node": {
+      "additionalProperties": false,
+      "description": "Nó da árvore sintática legislativa.",
+      "properties": {
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "documento",
+            "epigrafe",
+            "ementa",
+            "preambulo",
+            "parte",
+            "livro",
+            "titulo",
+            "capitulo",
+            "secao",
+            "subsecao",
+            "agrupamento",
+            "artigo",
+            "caput",
+            "paragrafo",
+            "inciso",
+            "alinea",
+            "item",
+            "fechamento",
+            "anexo",
+            "texto"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        },
+        "text": {
+          "default": "",
+          "title": "Text",
+          "type": "string"
+        },
+        "id": {
+          "default": "",
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "default": "",
+          "title": "Path",
+          "type": "string"
+        },
+        "fingerprint": {
+          "default": "",
+          "title": "Fingerprint",
+          "type": "string"
+        },
+        "revoked": {
+          "default": false,
+          "title": "Revoked",
+          "type": "boolean"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        },
+        "children": {
+          "items": {
+            "$ref": "#/$defs/Node"
+          },
+          "title": "Children",
+          "type": "array"
+        },
+        "meta": {
+          "additionalProperties": true,
+          "title": "Meta",
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Node",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Documento legislativo parseado.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source"
+    },
+    "format": {
+      "default": "text",
+      "enum": [
+        "text",
+        "html",
+        "lexml"
+      ],
+      "title": "Format",
+      "type": "string"
+    },
+    "epigrafe": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Epigrafe"
+    },
+    "ementa": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ementa"
+    },
+    "root": {
+      "$ref": "#/$defs/Node"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "root"
+  ],
+  "title": "Document",
+  "type": "object"
+}
