@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "Legis Diff"
+message: "Se você usa este software, cite-o como abaixo."
+type: software
+authors:
+  - name: "Como Votam"
+  - family-names: Coelho
+    given-names: Adriano
+license: Apache-2.0
+version: 1.0.0
+date-released: "2026-11-16"
+abstract: >-
+  Biblioteca e CLI para AST e diff estrutural/semântico de textos
+  legislativos brasileiros.
