@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LexML>
+  <Norma>
+    <Epigrafe>LEI Nº 1000, DE 1º DE MARÇO DE 2024</Epigrafe>
+    <Ementa>Institui regras de demonstração LexML.</Ementa>
+    <Preambulo>O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei:</Preambulo>
+    <Articulacao>
+      <Artigo id="art1">
+        <Caput id="art1_cpt">Esta lei regula a importação LexML.</Caput>
+        <Paragrafo id="art1_par1">O regulamento será editado em noventa dias.</Paragrafo>
+      </Artigo>
+      <Artigo id="art2">
+        <Caput id="art2_cpt">São diretrizes:</Caput>
+        <Inciso id="art2_inc1">transparência;</Inciso>
+        <Inciso id="art2_inc2">participação social.</Inciso>
+      </Artigo>
+    </Articulacao>
+  </Norma>
+</LexML>
